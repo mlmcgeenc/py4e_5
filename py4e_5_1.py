@@ -1,19 +1,19 @@
 print("PY4E exercise 5.2")
 
-num = 0
-total = 0.0
+largest = None
+smallest = None
 while True :
-  sval = input('Enter a number: ')
-  if sval == 'done' :
+  num = input('Enter a number: ')
+  if num == 'done' :
     break
   try:
-    fval = float(sval)
+    num = int(num)
   except:
-    print('Invalid input. Please enter a number or the text "done" when you are finished.')
+    print('Invalid input')
     continue
-  print(fval)
-  num = num + 1
-  total = total + fval
-
-print('ALL DONE')
-print(total, num, total/num)
+  if largest is None or num > largest :
+    largest = num
+  if smallest is None or num < smallest :
+    smallest = num
+print('Maximum is', largest)
+print('Minimum is', smallest)
